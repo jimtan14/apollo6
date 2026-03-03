@@ -293,6 +293,113 @@ export default function App() {
         </p>
       </div>
 
+      {/* NEXT STEPS: 10 PAGES TO CREATE */}
+      <div style={{ marginTop: 28, border: "1px solid #00ff6430", padding: 24, background: "#00ff6408" }}>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: 12, marginBottom: 20 }}>
+          <div>
+            <div style={{ fontFamily: "'DM Mono', monospace", fontSize: 10, fontWeight: 500, letterSpacing: "0.08em", textTransform: "uppercase", color: "#00ff64", marginBottom: 8 }}>NEXT 2 WEEKS</div>
+            <div style={{ fontFamily: "Georgia, serif", fontSize: 22, fontWeight: 400, letterSpacing: "-0.02em", lineHeight: 1.3 }}>10 pages to create</div>
+          </div>
+          <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+            <a href="https://app.airops.com/workflows" target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: 6, background: "#00ff64", color: "#000d05", fontFamily: "'DM Mono', monospace", fontSize: 10, fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase", padding: "10px 18px", textDecoration: "none", border: "none", cursor: "pointer" }}>
+              Kickstart Research in Workflow
+              <span style={{ fontSize: 14 }}>&#8599;</span>
+            </a>
+            <a href="https://app.airops.com/grids" target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: 6, background: "transparent", color: "#00ff64", fontFamily: "'DM Mono', monospace", fontSize: 10, fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase", padding: "9px 17px", textDecoration: "none", border: "1px solid #00ff6450", cursor: "pointer" }}>
+              Scale Writing in Grid
+              <span style={{ fontSize: 14 }}>&#8599;</span>
+            </a>
+          </div>
+        </div>
+
+        <div style={{ overflowX: "auto" }}>
+          <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 12 }}>
+            <thead>
+              <tr style={{ borderBottom: "1px solid #ffffff15" }}>
+                {["#", "Page Title", "Cluster", "Primary Keyword", "KD", "Volume", "Signal", "Week"].map((h) => (
+                  <th key={h} style={{ textAlign: "left", padding: "8px 7px", fontFamily: "'DM Mono', monospace", fontSize: 8, fontWeight: 500, letterSpacing: "0.06em", textTransform: "uppercase", color: "#676c79", whiteSpace: "nowrap" }}>{h}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {[
+                { n: 1, title: "AEO Software: The Complete Platform Guide", cluster: "AEO", clusterColor: "#00e676", keyword: "aeo software", kd: "--", vol: "SEM only", signal: "3 leads, $7.08 CPC", week: "Week 1" },
+                { n: 2, title: "AEO Strategy: How to Build Your 2026 Playbook", cluster: "AEO", clusterColor: "#00e676", keyword: "aeo strategy", kd: "--", vol: "SEM only", signal: "1 lead via SEM", week: "Week 1" },
+                { n: 3, title: "AEO Services: What to Look For in a Partner", cluster: "AEO", clusterColor: "#00e676", keyword: "aeo services", kd: "1", vol: "700", signal: "0 → 1,188/mo trend", week: "Week 1" },
+                { n: 4, title: "AEO Agency: How to Choose the Right One", cluster: "AEO", clusterColor: "#00e676", keyword: "aeo agency", kd: "1", vol: "800", signal: "0 → 1,524/mo trend", week: "Week 1" },
+                { n: 5, title: "LLM SEO: The Complete Guide to LLM Optimization", cluster: "LLM", clusterColor: "#008c44", keyword: "llm seo", kd: "24", vol: "1,200", signal: "+3,267% trend", week: "Week 1" },
+                { n: 6, title: "LLM Visibility Tools: Track Your AI Citations", cluster: "LLM", clusterColor: "#008c44", keyword: "llm visibility tools", kd: "--", vol: "SEM only", signal: "17 clicks in SEM", week: "Week 2" },
+                { n: 7, title: "Best LLM SEO Tools for Brand Monitoring", cluster: "LLM", clusterColor: "#008c44", keyword: "llm seo tools", kd: "--", vol: "SEM only", signal: "8 clicks, 11.8% CTR", week: "Week 2" },
+                { n: 8, title: "GEO vs AEO: What's the Difference (and Which Matters)", cluster: "GEO", clusterColor: "#CCFFE0", keyword: "geo vs aeo", kd: "~15", vol: "Bridge for 8.3K", signal: "Redirect to AEO pillar", week: "Week 2" },
+                { n: 9, title: "Generative Engine Optimization Tools (2026)", cluster: "GEO", clusterColor: "#CCFFE0", keyword: "generative engine optimization tools", kd: "14", vol: "1,000", signal: "0 → 1,524/mo trend", week: "Week 2" },
+                { n: 10, title: "How to Rank on ChatGPT: An AEO Guide", cluster: "ChatGPT", clusterColor: "#0a2e14", keyword: "rank on chatgpt", kd: "--", vol: "SEM only", signal: "9 clicks, 1 lead", week: "Week 2" },
+              ].map((p) => (
+                <tr key={p.n} style={{ borderBottom: "1px solid #ffffff08" }}>
+                  <td style={{ padding: "9px 7px", fontFamily: "'DM Mono', monospace", fontSize: 11, color: "#676c79" }}>{p.n}</td>
+                  <td style={{ padding: "9px 7px", color: "#fff", fontWeight: 500, fontSize: 12, minWidth: 220 }}>{p.title}</td>
+                  <td style={{ padding: "9px 7px" }}>
+                    <span style={{ display: "inline-block", background: p.clusterColor, color: p.clusterColor === "#CCFFE0" || p.clusterColor === "#00e676" ? "#000d05" : "#fff", fontFamily: "'DM Mono', monospace", fontSize: 8, fontWeight: 500, letterSpacing: "0.06em", textTransform: "uppercase", padding: "2px 6px", whiteSpace: "nowrap" }}>{p.cluster}</span>
+                  </td>
+                  <td style={{ padding: "9px 7px", color: "#a5aab6", fontSize: 11 }}>{p.keyword}</td>
+                  <td style={{ padding: "9px 7px", color: "#a5aab6", fontFamily: "'DM Mono', monospace", fontSize: 11 }}>{p.kd}</td>
+                  <td style={{ padding: "9px 7px", color: "#a5aab6", fontFamily: "'DM Mono', monospace", fontSize: 11 }}>{p.vol}</td>
+                  <td style={{ padding: "9px 7px", fontSize: 11, color: p.signal.includes("lead") ? "#00ff64" : p.signal.includes("click") || p.signal.includes("CTR") ? "#CCFFE0" : "#00e676" }}>{p.signal}</td>
+                  <td style={{ padding: "9px 7px" }}>
+                    <span style={{ display: "inline-block", background: p.week === "Week 1" ? "#00ff6420" : "#ffffff0a", color: p.week === "Week 1" ? "#00ff64" : "#a5aab6", fontFamily: "'DM Mono', monospace", fontSize: 8, fontWeight: 500, letterSpacing: "0.06em", textTransform: "uppercase", padding: "2px 6px", whiteSpace: "nowrap" }}>{p.week}</span>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      {/* PAGES TO REFRESH */}
+      <div style={{ marginTop: 16, border: "1px solid #EEFF8C30", padding: 24, background: "#EEFF8C06" }}>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: 12, marginBottom: 20 }}>
+          <div>
+            <div style={{ fontFamily: "'DM Mono', monospace", fontSize: 10, fontWeight: 500, letterSpacing: "0.08em", textTransform: "uppercase", color: "#EEFF8C", marginBottom: 8 }}>REFRESH QUEUE</div>
+            <div style={{ fontFamily: "Georgia, serif", fontSize: 22, fontWeight: 400, letterSpacing: "-0.02em", lineHeight: 1.3 }}>5 existing pages to optimize</div>
+          </div>
+          <a href="https://app.airops.com/workflows" target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: 6, background: "#EEFF8C", color: "#000d05", fontFamily: "'DM Mono', monospace", fontSize: 10, fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase", padding: "10px 18px", textDecoration: "none", border: "none", cursor: "pointer" }}>
+            Run Refresh Workflow
+            <span style={{ fontSize: 14 }}>&#8599;</span>
+          </a>
+        </div>
+
+        <div style={{ overflowX: "auto" }}>
+          <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 12 }}>
+            <thead>
+              <tr style={{ borderBottom: "1px solid #ffffff15" }}>
+                {["Page", "Current State", "Opportunity", "Priority"].map((h) => (
+                  <th key={h} style={{ textAlign: "left", padding: "8px 7px", fontFamily: "'DM Mono', monospace", fontSize: 8, fontWeight: 500, letterSpacing: "0.06em", textTransform: "uppercase", color: "#676c79", whiteSpace: "nowrap" }}>{h}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {[
+                { page: "/blog/aeo-answer-engine-optimization", state: "61 clicks, 22K imp, pos 21.8", opportunity: "Ranking page 2-3. Move to page 1 and clicks multiply 5-10x. Add structured data, update for 2026 stats, internal link from all new AEO pages.", priority: "Critical" },
+                { page: "/blog/aeo-vs-seo", state: "Clicks +600%, citations +1,565%", opportunity: "Momentum is surging. Expand with comparison tables, add 'aeo vs geo' section to capture adjacent queries, update competitive data.", priority: "High" },
+                { page: "/blog/answer-engine-optimization-tools", state: "Clicks +440%, citations +2,156%", opportunity: "Best citation growth on the site. Add AirOps product screenshots, comparison with competitors, structured FAQ schema for AI answers.", priority: "High" },
+                { page: "/blog/llm-brand-citation-tracking", state: "35 clicks, 23.5K imp, +316% cit.", opportunity: "Only LLM page on the site. Expand to cover 'llm seo' and 'llm visibility' keywords. Add how-to sections. Internal link to new LLM pillar pages.", priority: "High" },
+                { page: "/blog/content-refresh-strategy-guide", state: "30 clicks, 6.3K imp, 659 cit.", opportunity: "Strong citation performance. Update with AEO-specific refresh methodology. Add data from GSC showing refresh impact on AI visibility.", priority: "Medium" },
+              ].map((r, i) => (
+                <tr key={i} style={{ borderBottom: "1px solid #ffffff08" }}>
+                  <td style={{ padding: "9px 7px", color: "#fff", fontWeight: 500, fontSize: 12, minWidth: 240 }}>
+                    <span style={{ fontFamily: "'DM Mono', monospace", fontSize: 11 }}>{r.page}</span>
+                  </td>
+                  <td style={{ padding: "9px 7px", color: "#CCFFE0", fontSize: 11, minWidth: 160 }}>{r.state}</td>
+                  <td style={{ padding: "9px 7px", color: "#a5aab6", fontSize: 12, lineHeight: 1.5, minWidth: 280 }}>{r.opportunity}</td>
+                  <td style={{ padding: "9px 7px" }}>
+                    <span style={{ display: "inline-block", background: r.priority === "Critical" ? "#ff4444" : r.priority === "High" ? "#EEFF8C" : "#ffffff15", color: r.priority === "Critical" ? "#fff" : r.priority === "High" ? "#000d05" : "#a5aab6", fontFamily: "'DM Mono', monospace", fontSize: 8, fontWeight: 500, letterSpacing: "0.06em", textTransform: "uppercase", padding: "2px 6px", whiteSpace: "nowrap" }}>{r.priority}</span>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
       <div style={{ marginTop: 28, paddingTop: 14, borderTop: "1px solid #ffffff10", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 8 }}>
         <div style={{ fontFamily: "'DM Mono', monospace", fontSize: 10, letterSpacing: "0.08em", textTransform: "uppercase", color: "#676c79" }}>AIROPS COMPETITIVE INTELLIGENCE</div>
         <div style={{ fontFamily: "'DM Mono', monospace", fontSize: 10, letterSpacing: "0.08em", textTransform: "uppercase", color: "#676c79" }}>SEMRUSH + GOOGLE ADS + GSC + GONG · MARCH 2026</div>
