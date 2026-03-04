@@ -325,11 +325,33 @@ export default function App() {
       <div style={{ marginBottom: 36 }}>
         <div style={{ ...mono, fontSize: 11, color: "#00ff64", marginBottom: 12 }}>KEYWORD CLUSTER ANALYSIS</div>
         <h1 style={{ fontFamily: "Georgia, serif", fontSize: 32, fontWeight: 400, letterSpacing: "-0.02em", lineHeight: 1.1, margin: 0, marginBottom: 8 }}>
-          Which clusters does AirOps need to own
+          Which opportunity should I pursue
         </h1>
         <p style={{ color: "#a5aab6", fontSize: 13, margin: 0, maxWidth: 700, lineHeight: 1.5 }}>
           Four data layers: Semrush organic (20K keywords), Google Ads SEM (968 search terms), Google Search Console (airops.com), and Gong call transcripts. Organic drives strategy. SEM, GSC, and Gong validate.
         </p>
+      </div>
+
+      {/* RECOMMENDATION */}
+      <div style={{ border: "1px solid #00ff6425", padding: 24, background: "#00ff6406", marginBottom: 20 }}>
+        <div style={{ ...mono, fontSize: 10, color: "#00ff64", marginBottom: 12 }}>RECOMMENDATION</div>
+        <div style={{ fontFamily: "Georgia, serif", fontSize: 20, fontWeight: 400, letterSpacing: "-0.02em", marginBottom: 20, lineHeight: 1.3 }}>
+          {recommendation.headline}
+        </div>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 18 }}>
+          {recommendation.items.map((item, i) => (
+            <div key={i}>
+              <div style={{ fontWeight: 600, fontSize: 13, marginBottom: 5, color: item.color }}>{item.title}</div>
+              <p style={{ fontSize: 12, color: "#a5aab6", margin: 0, lineHeight: 1.55 }}>{item.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* GONG SIGNAL */}
+      <div style={{ marginBottom: 28, padding: 14, background: "#ffffff06", borderLeft: "2px solid #EEFF8C" }}>
+        <div style={{ ...monoSm, color: "#EEFF8C", marginBottom: 6 }}>GONG SIGNAL WORTH NOTING</div>
+        <p style={{ fontSize: 12, lineHeight: 1.6, margin: 0, color: "#ddd" }}>{gongSignal}</p>
       </div>
 
       {/* CLUSTER TABS */}
@@ -395,28 +417,6 @@ export default function App() {
           </div>
         </div>
       )}
-
-      {/* RECOMMENDATION */}
-      <div style={{ border: "1px solid #00ff6425", padding: 24, background: "#00ff6406" }}>
-        <div style={{ ...mono, fontSize: 10, color: "#00ff64", marginBottom: 12 }}>RECOMMENDATION</div>
-        <div style={{ fontFamily: "Georgia, serif", fontSize: 20, fontWeight: 400, letterSpacing: "-0.02em", marginBottom: 20, lineHeight: 1.3 }}>
-          {recommendation.headline}
-        </div>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 18 }}>
-          {recommendation.items.map((item, i) => (
-            <div key={i}>
-              <div style={{ fontWeight: 600, fontSize: 13, marginBottom: 5, color: item.color }}>{item.title}</div>
-              <p style={{ fontSize: 12, color: "#a5aab6", margin: 0, lineHeight: 1.55 }}>{item.description}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* GONG SIGNAL */}
-      <div style={{ marginTop: 20, padding: 14, background: "#ffffff06", borderLeft: "2px solid #EEFF8C" }}>
-        <div style={{ ...monoSm, color: "#EEFF8C", marginBottom: 6 }}>GONG SIGNAL WORTH NOTING</div>
-        <p style={{ fontSize: 12, lineHeight: 1.6, margin: 0, color: "#ddd" }}>{gongSignal}</p>
-      </div>
 
       {/* NEXT STEPS: 10 PAGES TO CREATE */}
       <div style={{ marginTop: 28, border: "1px solid #00ff6430", padding: 24, background: "#00ff6408" }}>
@@ -507,7 +507,7 @@ export default function App() {
 
       {/* FOOTER */}
       <div style={{ marginTop: 28, paddingTop: 14, borderTop: "1px solid #ffffff10", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 8 }}>
-        <div style={{ ...mono, fontSize: 10, color: "#676c79" }}>AIROPS COMPETITIVE INTELLIGENCE</div>
+        <div style={{ ...mono, fontSize: 10, color: "#676c79" }}>LANYARD · AIROPS COMPETITIVE INTELLIGENCE</div>
         <div style={{ ...mono, fontSize: 10, color: "#676c79" }}>SEMRUSH + GOOGLE ADS + GSC + GONG · MARCH 2026</div>
       </div>
     </div>
