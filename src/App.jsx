@@ -17,22 +17,22 @@ const DEFAULT_CLUSTERS = [
     competitorDensity: "Moderate",
     airopsPosition: "Category leader",
     rationale:
-      "Largest cluster by keyword count (7,365) and second in total volume (108K). Average KD of 11 means most terms are winnable. AirOps brand guidelines mandate AEO as the preferred term. 'aeo vs seo' grew from 12/mo to 2,032/mo in two years. 'aeo agency' from zero to 1,524/mo. 'aeo tools' from zero to 1,268/mo. The parent keyword for 'aeo' is still 'american eagle' in Semrush -- the category definition window is open.",
+      "Largest cluster by keyword count (7,365) and second in total volume (108K). Average KD of 11 means most terms are winnable. AirOps brand guidelines mandate AEO as the preferred term. 'aeo vs seo' grew from 12/mo to 2,032/mo in two years. 'aeo agency' from zero to 1,524/mo. 'aeo tools' from zero to 1,268/mo. The parent keyword for 'aeo' is still 'american eagle' in Semrush. The category definition window is open.",
     semInsight: "SEM confirms buyer intent: 12 leads across 75 search terms. 'aeo software' drove 3 leads at $7.08 CPC. 'how to do aeo' drove 2 leads at $28.79 CpL. Commercial terms are converting, not just researchers.",
-    gscInsight: "GSC shows AirOps' AEO content footprint is real but early. The pillar page (/blog/aeo-answer-engine-optimization) drove 61 clicks from 22K impressions in Feb -- but avg position is 21.8, meaning it ranks on page 2-3 and has significant upside with optimization. The AEO vs SEO page is surging: clicks up 600%, impressions up 778%, citations up 1,565%. The answer-engine-optimization-tools page exploded: clicks up 440%, citations up 2,156%. Total AEO citations across all pages: 2,800+.",
+    gscInsight: "GSC shows AirOps' AEO content footprint is real but early. The pillar page (/blog/aeo-answer-engine-optimization) drove 61 clicks from 22K impressions in Feb.but avg position is 21.8, meaning it ranks on page 2-3 and has significant upside with optimization. The AEO vs SEO page is surging: clicks up 600%, impressions up 778%, citations up 1,565%. The answer-engine-optimization-tools page exploded: clicks up 440%, citations up 2,156%. Total AEO citations across all pages: 2,800+.",
     gongInsight: "In the Ownwell demo (Feb 2), the prospect (Chi) specifically asked about 'optimizing for both AEO and SEO,' used 'prompt visibility in LLMs and ChatGPT' as natural language, and asked about GSC integration for triggering refreshes when metrics drop. Prospects are already using AEO terminology in conversations. They frame the problem as 'content creation + refresh for AEO/SEO' and want automated triggers based on visibility loss.",
     keywords: [
-      { term: "aeo", volume: "7,300", kd: "61", trend: "+24%", semData: "--", gsc: "22K impressions", status: "Ranking" },
+      { term: "aeo", volume: "7,300", kd: "61", trend: "+24%", semData: "·", gsc: "22K impressions", status: "Ranking" },
       { term: "answer engine optimization", volume: "3,200", kd: "37", trend: "+3,100%", semData: "16 clicks, 2 leads", gsc: "61 clicks, pos 21.8", status: "Ranking" },
       { term: "aeo vs seo", volume: "1,300", kd: "12", trend: "+16,833%", semData: "4 clicks", gsc: "+600% clicks", status: "Opportunity" },
       { term: "aeo tools", volume: "600", kd: "10", trend: "0 → 1,268", semData: "37 clicks, 1 lead", gsc: "+440% clicks", status: "Ranking" },
-      { term: "answer engine optimization tools", volume: "600", kd: "10", trend: "0 → 1,350", semData: "--", gsc: "27 clicks, +2,156% cit.", status: "Ranking" },
-      { term: "aeo agency", volume: "800", kd: "1", trend: "0 → 1,524", semData: "--", gsc: "--", status: "Opportunity" },
-      { term: "aeo software", volume: "--", kd: "--", trend: "Not in Semrush", semData: "12 clicks, 3 leads", gsc: "--", status: "SEM signal" },
-      { term: "aeo content structure", volume: "--", kd: "--", trend: "--", semData: "--", gsc: "17 clicks, +1,421% cit.", status: "GSC signal" },
-      { term: "aeo marketing", volume: "700", kd: "--", trend: "+21,320%", semData: "4 clicks, 1 lead", gsc: "--", status: "Opportunity" },
-      { term: "aeo services", volume: "700", kd: "1", trend: "0 → 1,188", semData: "--", gsc: "--", status: "Opportunity" },
-      { term: "aeo strategy", volume: "--", kd: "--", trend: "--", semData: "3 clicks, 1 lead", gsc: "--", status: "SEM signal" },
+      { term: "answer engine optimization tools", volume: "600", kd: "10", trend: "0 → 1,350", semData: "·", gsc: "27 clicks, +2,156% cit.", status: "Ranking" },
+      { term: "aeo agency", volume: "800", kd: "1", trend: "0 → 1,524", semData: "·", gsc: "·", status: "Opportunity" },
+      { term: "aeo software", volume: "·", kd: "·", trend: "Not in Semrush", semData: "12 clicks, 3 leads", gsc: "·", status: "SEM signal" },
+      { term: "aeo content structure", volume: "·", kd: "·", trend: "·", semData: "·", gsc: "17 clicks, +1,421% cit.", status: "GSC signal" },
+      { term: "aeo marketing", volume: "700", kd: "·", trend: "+21,320%", semData: "4 clicks, 1 lead", gsc: "·", status: "Opportunity" },
+      { term: "aeo services", volume: "700", kd: "1", trend: "0 → 1,188", semData: "·", gsc: "·", status: "Opportunity" },
+      { term: "aeo strategy", volume: "·", kd: "·", trend: "·", semData: "3 clicks, 1 lead", gsc: "·", status: "SEM signal" },
     ],
   },
   {
@@ -52,18 +52,18 @@ const DEFAULT_CLUSTERS = [
     airopsPosition: "Wide open",
     rationale:
       "Lowest average KD in the dataset (7.6). Highest average CPC ($4.38). 'llm seo' grew from 45/mo to 1,515/mo. 'llm seo tool' spiked to 7,105 searches in one month. No single platform owns this cluster. AirOps has direct product alignment via LLM citation tracking.",
-    semInsight: "SEM validates conversion: 5 leads from 86 clicks at 5.5% CTR. 'how to improve llm visibility' converted at $3.90 CpL -- lowest in the entire SEM dataset. 'llm tracking tools,' 'llm seo report,' and 'llm monitoring tools' each drove a lead.",
-    gscInsight: "AirOps' LLM brand citation tracking page (/blog/llm-brand-citation-tracking) is already performing: 35 clicks, 23.5K impressions, 827 citations in Feb. Clicks up 218%, citations up 316%. This is the only meaningful LLM-cluster page on airops.com -- massive headroom to build 3-5 more pillar pieces around 'llm seo,' 'llm visibility,' and 'llm ranking.'",
-    gongInsight: "In the Ownwell call, the prospect asked specifically about 'prompt visibility in LLMs and ChatGPT' as a feature request. Rose confirmed AirOps benchmarks against SEO data and offers 'prompt volume data' with high/medium/low indicators. Prospects frame LLM visibility as the next thing they need tracked after GSC -- they want automated alerts when LLM citation drops.",
+    semInsight: "SEM validates conversion: 5 leads from 86 clicks at 5.5% CTR. 'how to improve llm visibility' converted at $3.90 CpL. Lowest in the entire SEM dataset. 'llm tracking tools,' 'llm seo report,' and 'llm monitoring tools' each drove a lead.",
+    gscInsight: "AirOps' LLM brand citation tracking page (/blog/llm-brand-citation-tracking) is already performing: 35 clicks, 23.5K impressions, 827 citations in Feb. Clicks up 218%, citations up 316%. This is the only meaningful LLM-cluster page on airops.com. Massive headroom to build 3-5 more pillar pieces around 'llm seo,' 'llm visibility,' and 'llm ranking.'",
+    gongInsight: "In the Ownwell call, the prospect asked specifically about 'prompt visibility in LLMs and ChatGPT' as a feature request. Rose confirmed AirOps benchmarks against SEO data and offers 'prompt volume data' with high/medium/low indicators. Prospects frame LLM visibility as the next thing they need tracked after GSC. They want automated alerts when LLM citation drops.",
     keywords: [
-      { term: "llm seo", volume: "1,200", kd: "24", trend: "+3,267%", semData: "2 clicks", gsc: "--", status: "Gap" },
-      { term: "llm ranking", volume: "1,100", kd: "79", trend: "+233%", semData: "--", gsc: "--", status: "Ambiguous" },
-      { term: "llm seo tool", volume: "900", kd: "27", trend: "Spiked to 7K", semData: "--", gsc: "--", status: "High priority" },
-      { term: "llmo", volume: "700", kd: "22", trend: "+135%", semData: "--", gsc: "--", status: "Opportunity" },
-      { term: "llm brand citation tracking", volume: "--", kd: "--", trend: "--", semData: "--", gsc: "35 clicks, +316% cit.", status: "GSC signal" },
-      { term: "llm visibility", volume: "--", kd: "--", trend: "--", semData: "17 clicks", gsc: "--", status: "SEM signal" },
-      { term: "llm seo tools", volume: "--", kd: "--", trend: "--", semData: "8 clicks, 11.8% CTR", gsc: "--", status: "SEM signal" },
-      { term: "how to improve llm visibility", volume: "--", kd: "--", trend: "--", semData: "1 lead, $3.90 CpL", gsc: "--", status: "SEM: best CpL" },
+      { term: "llm seo", volume: "1,200", kd: "24", trend: "+3,267%", semData: "2 clicks", gsc: "·", status: "Gap" },
+      { term: "llm ranking", volume: "1,100", kd: "79", trend: "+233%", semData: "·", gsc: "·", status: "Ambiguous" },
+      { term: "llm seo tool", volume: "900", kd: "27", trend: "Spiked to 7K", semData: "·", gsc: "·", status: "High priority" },
+      { term: "llmo", volume: "700", kd: "22", trend: "+135%", semData: "·", gsc: "·", status: "Opportunity" },
+      { term: "llm brand citation tracking", volume: "·", kd: "·", trend: "·", semData: "·", gsc: "35 clicks, +316% cit.", status: "GSC signal" },
+      { term: "llm visibility", volume: "·", kd: "·", trend: "·", semData: "17 clicks", gsc: "·", status: "SEM signal" },
+      { term: "llm seo tools", volume: "·", kd: "·", trend: "·", semData: "8 clicks, 11.8% CTR", gsc: "·", status: "SEM signal" },
+      { term: "how to improve llm visibility", volume: "·", kd: "·", trend: "·", semData: "1 lead, $3.90 CpL", gsc: "·", status: "SEM: best CpL" },
     ],
   },
   {
@@ -83,15 +83,15 @@ const DEFAULT_CLUSTERS = [
     airopsPosition: "Strategic redirect",
     rationale:
       "GEO has the single highest-volume keyword in the dataset (8,300/mo) but KD 69 and owned by Semrush, Search Engine Land, and a16z. Long tail is thinner than AEO (1,983 vs 7,365 keywords). Cover GEO to capture organic demand, redirect to AEO.",
-    semInsight: "SEM reinforces the redirect. GEO has the lowest CTR (2.9%) and worst lead efficiency. 'generative engine optimization' drove 42 clicks but only 1 lead at $367 CpL -- worst in the dataset. Researchers click, buyers don't convert.",
+    semInsight: "SEM reinforces the redirect. GEO has the lowest CTR (2.9%) and worst lead efficiency. 'generative engine optimization' drove 42 clicks but only 1 lead at $367 CpL. Worst in the dataset. Researchers click, buyers don't convert.",
     gscInsight: "AirOps has no dedicated GEO landing page in GSC data. The AEO pillar page captures some GEO-adjacent impressions (22K) but doesn't explicitly target 'generative engine optimization.' A bridge page ('GEO vs AEO') could capture the 8,300/mo head term without competing directly on KD 69.",
-    gongInsight: "Prospects don't use the term 'GEO' in calls. They say 'AEO,' 'AI search,' 'LLM visibility,' or 'prompt visibility.' GEO is an industry/media term, not a buyer term. This further supports the redirect strategy -- capture the search demand, route to the language buyers actually use.",
+    gongInsight: "Prospects don't use the term 'GEO' in calls. They say 'AEO,' 'AI search,' 'LLM visibility,' or 'prompt visibility.' GEO is an industry/media term, not a buyer term. This further supports the redirect strategy. Capture the search demand, route to the language buyers actually use.",
     keywords: [
       { term: "generative engine optimization", volume: "8,300", kd: "69", trend: "+8,532%", semData: "42 clicks, $367 CpL", gsc: "No dedicated page", status: "Hard to rank" },
-      { term: "GEO services", volume: "1,600", kd: "10", trend: "0 → 2,598", semData: "--", gsc: "--", status: "Opportunity" },
-      { term: "generative engine optimization tools", volume: "1,000", kd: "14", trend: "0 → 1,524", semData: "3 clicks", gsc: "--", status: "Opportunity" },
-      { term: "generative engine optimization agency", volume: "700", kd: "2", trend: "0 → 1,270", semData: "3 clicks", gsc: "--", status: "Opportunity" },
-      { term: "geo seo", volume: "--", kd: "--", trend: "--", semData: "5 clicks, 1 lead", gsc: "--", status: "SEM signal" },
+      { term: "GEO services", volume: "1,600", kd: "10", trend: "0 → 2,598", semData: "·", gsc: "·", status: "Opportunity" },
+      { term: "generative engine optimization tools", volume: "1,000", kd: "14", trend: "0 → 1,524", semData: "3 clicks", gsc: "·", status: "Opportunity" },
+      { term: "generative engine optimization agency", volume: "700", kd: "2", trend: "0 → 1,270", semData: "3 clicks", gsc: "·", status: "Opportunity" },
+      { term: "geo seo", volume: "·", kd: "·", trend: "·", semData: "5 clicks, 1 lead", gsc: "·", status: "SEM signal" },
     ],
   },
   {
@@ -116,10 +116,10 @@ const DEFAULT_CLUSTERS = [
     gongInsight: "In calls, prospects describe their problem as 'AI visibility' or 'AI search visibility,' not 'AI SEO.' The Ownwell prospect asked about 'prompt visibility in LLMs.' This maps directly to the 'ai visibility tools' SEM cluster. Product landing pages should use 'AI visibility' language, not generic 'AI SEO.'",
     keywords: [
       { term: "ai search optimization", volume: "2,000", kd: "60", trend: "+9,385%", semData: "4 clicks", gsc: "Via case studies", status: "Deprioritize" },
-      { term: "ai visibility tools", volume: "--", kd: "--", trend: "--", semData: "56 clicks, 5 leads", gsc: "--", status: "SEM: top converter" },
-      { term: "ai visibility tracker", volume: "--", kd: "--", trend: "--", semData: "16 clicks, 2 leads", gsc: "--", status: "SEM: high intent" },
-      { term: "content engineering", volume: "--", kd: "--", trend: "--", semData: "--", gsc: "139 clicks, 599 cit.", status: "GSC: performing" },
-      { term: "content refresh strategy", volume: "--", kd: "--", trend: "--", semData: "--", gsc: "30 clicks, 659 cit.", status: "GSC: performing" },
+      { term: "ai visibility tools", volume: "·", kd: "·", trend: "·", semData: "56 clicks, 5 leads", gsc: "·", status: "SEM: top converter" },
+      { term: "ai visibility tracker", volume: "·", kd: "·", trend: "·", semData: "16 clicks, 2 leads", gsc: "·", status: "SEM: high intent" },
+      { term: "content engineering", volume: "·", kd: "·", trend: "·", semData: "·", gsc: "139 clicks, 599 cit.", status: "GSC: performing" },
+      { term: "content refresh strategy", volume: "·", kd: "·", trend: "·", semData: "·", gsc: "30 clicks, 659 cit.", status: "GSC: performing" },
     ],
   },
   {
@@ -132,36 +132,36 @@ const DEFAULT_CLUSTERS = [
     totalVolume: "~3,000",
     keywordCount: "~50",
     avgKD: "Medium",
-    avgCPC: "--",
+    avgCPC: "·",
     semSignal: "2 leads, 53 clicks, 4.4% CTR",
     trend: "Stable",
     competitorDensity: "Medium",
     airopsPosition: "Strong potential",
     rationale:
-      "Most keywords in this cluster have zero Semrush volume -- they're emerging patterns not yet indexed. People searching 'how to rank on chatgpt' are the exact audience for AEO. Build mid-funnel bridge content linking ChatGPT-specific intent to the AEO framework.",
+      "Most keywords in this cluster have zero Semrush volume. They're emerging patterns not yet indexed. People searching 'how to rank on chatgpt' are the exact audience for AEO. Build mid-funnel bridge content linking ChatGPT-specific intent to the AEO framework.",
     semInsight: "SEM validates demand: 'chatgpt seo' drove 12 clicks, 'rank on chatgpt' drove 9 clicks and 1 lead. 'how to get ranked in chatgpt' converted at $5.45 CpL.",
     gscInsight: "AirOps already has GSC traction on ChatGPT-adjacent content. 'does chatgpt give the same answers to everyone' drove 96 clicks from 35K impressions. 'what model does chatgpt use' drove 49 clicks. These informational pages generate traffic but aren't conversion-oriented. A 'how to rank on ChatGPT' page connecting to AEO could bridge this gap.",
-    gongInsight: "In the Ownwell call, the prospect specifically mentioned 'prompt visibility in LLMs and ChatGPT' as paired concepts. Prospects don't separate ChatGPT from the broader AEO story -- they see it as one surface within the AI answer ecosystem. Content should mirror this framing.",
+    gongInsight: "In the Ownwell call, the prospect specifically mentioned 'prompt visibility in LLMs and ChatGPT' as paired concepts. Prospects don't separate ChatGPT from the broader AEO story. They see it as one surface within the AI answer ecosystem. Content should mirror this framing.",
     keywords: [
-      { term: "chatgpt seo", volume: "--", kd: "--", trend: "Not in Semrush", semData: "12 clicks", gsc: "--", status: "SEM signal" },
-      { term: "rank on chatgpt", volume: "--", kd: "--", trend: "--", semData: "9 clicks, 1 lead", gsc: "--", status: "SEM signal" },
-      { term: "does chatgpt give same answers", volume: "--", kd: "--", trend: "--", semData: "--", gsc: "96 clicks, 35K imp.", status: "GSC: traffic driver" },
-      { term: "how to show up in ai search", volume: "--", kd: "--", trend: "--", semData: "5 clicks, 11.1% CTR", gsc: "--", status: "SEM signal" },
+      { term: "chatgpt seo", volume: "·", kd: "·", trend: "Not in Semrush", semData: "12 clicks", gsc: "·", status: "SEM signal" },
+      { term: "rank on chatgpt", volume: "·", kd: "·", trend: "·", semData: "9 clicks, 1 lead", gsc: "·", status: "SEM signal" },
+      { term: "does chatgpt give same answers", volume: "·", kd: "·", trend: "·", semData: "·", gsc: "96 clicks, 35K imp.", status: "GSC: traffic driver" },
+      { term: "how to show up in ai search", volume: "·", kd: "·", trend: "·", semData: "5 clicks, 11.1% CTR", gsc: "·", status: "SEM signal" },
     ],
   },
 ];
 
 const DEFAULT_PAGES_TO_CREATE = [
-  { n: 1, title: "AEO Software: The Complete Platform Guide", cluster: "AEO", clusterColor: "#00e676", keyword: "aeo software", kd: "--", vol: "SEM only", signal: "3 leads, $7.08 CPC", week: "Week 1" },
-  { n: 2, title: "AEO Strategy: How to Build Your 2026 Playbook", cluster: "AEO", clusterColor: "#00e676", keyword: "aeo strategy", kd: "--", vol: "SEM only", signal: "1 lead via SEM", week: "Week 1" },
+  { n: 1, title: "AEO Software: The Complete Platform Guide", cluster: "AEO", clusterColor: "#00e676", keyword: "aeo software", kd: "·", vol: "SEM only", signal: "3 leads, $7.08 CPC", week: "Week 1" },
+  { n: 2, title: "AEO Strategy: How to Build Your 2026 Playbook", cluster: "AEO", clusterColor: "#00e676", keyword: "aeo strategy", kd: "·", vol: "SEM only", signal: "1 lead via SEM", week: "Week 1" },
   { n: 3, title: "AEO Services: What to Look For in a Partner", cluster: "AEO", clusterColor: "#00e676", keyword: "aeo services", kd: "1", vol: "700", signal: "0 → 1,188/mo trend", week: "Week 1" },
   { n: 4, title: "AEO Agency: How to Choose the Right One", cluster: "AEO", clusterColor: "#00e676", keyword: "aeo agency", kd: "1", vol: "800", signal: "0 → 1,524/mo trend", week: "Week 1" },
   { n: 5, title: "LLM SEO: The Complete Guide to LLM Optimization", cluster: "LLM", clusterColor: "#008c44", keyword: "llm seo", kd: "24", vol: "1,200", signal: "+3,267% trend", week: "Week 1" },
-  { n: 6, title: "LLM Visibility Tools: Track Your AI Citations", cluster: "LLM", clusterColor: "#008c44", keyword: "llm visibility tools", kd: "--", vol: "SEM only", signal: "17 clicks in SEM", week: "Week 2" },
-  { n: 7, title: "Best LLM SEO Tools for Brand Monitoring", cluster: "LLM", clusterColor: "#008c44", keyword: "llm seo tools", kd: "--", vol: "SEM only", signal: "8 clicks, 11.8% CTR", week: "Week 2" },
+  { n: 6, title: "LLM Visibility Tools: Track Your AI Citations", cluster: "LLM", clusterColor: "#008c44", keyword: "llm visibility tools", kd: "·", vol: "SEM only", signal: "17 clicks in SEM", week: "Week 2" },
+  { n: 7, title: "Best LLM SEO Tools for Brand Monitoring", cluster: "LLM", clusterColor: "#008c44", keyword: "llm seo tools", kd: "·", vol: "SEM only", signal: "8 clicks, 11.8% CTR", week: "Week 2" },
   { n: 8, title: "GEO vs AEO: What's the Difference (and Which Matters)", cluster: "GEO", clusterColor: "#CCFFE0", keyword: "geo vs aeo", kd: "~15", vol: "Bridge for 8.3K", signal: "Redirect to AEO pillar", week: "Week 2" },
   { n: 9, title: "Generative Engine Optimization Tools (2026)", cluster: "GEO", clusterColor: "#CCFFE0", keyword: "generative engine optimization tools", kd: "14", vol: "1,000", signal: "0 → 1,524/mo trend", week: "Week 2" },
-  { n: 10, title: "How to Rank on ChatGPT: An AEO Guide", cluster: "ChatGPT", clusterColor: "#0a2e14", keyword: "rank on chatgpt", kd: "--", vol: "SEM only", signal: "9 clicks, 1 lead", week: "Week 2" },
+  { n: 10, title: "How to Rank on ChatGPT: An AEO Guide", cluster: "ChatGPT", clusterColor: "#0a2e14", keyword: "rank on chatgpt", kd: "·", vol: "SEM only", signal: "9 clicks, 1 lead", week: "Week 2" },
 ];
 
 const DEFAULT_PAGES_TO_REFRESH = [
@@ -175,14 +175,14 @@ const DEFAULT_PAGES_TO_REFRESH = [
 const DEFAULT_RECOMMENDATION = {
   headline: "Own AEO. Grab LLM before anyone else does. Catch GEO traffic and send it to AEO. Use AI Visibility for paid ads only.",
   items: [
-    { title: "1. AEO: This is our word. Own it.", description: 'Nobody owns "AEO" yet. We have the most keywords (7,365), people are already searching for it, and prospects say it on sales calls. Our main page ranks on page 2 -- push it to page 1 and traffic explodes. Build pages for "aeo tools," "aeo agency," and "aeo software" -- they\'re easy to win and buyers are already clicking.', color: "#00e676" },
-    { title: "2. LLM Optimization: Easiest wins, biggest gap", description: 'The easiest keywords to rank for in the entire dataset (KD 7.6) and nobody else is there yet. We only have one page on LLM topics -- competitors have zero. Prospects are asking about LLM visibility on sales calls. Build 3-5 pages and we can own this space before it gets crowded.', color: "#008c44" },
-    { title: "3. GEO: Catch the searches, redirect to AEO", description: '"Generative engine optimization" gets 8,300 searches/month but it\'s hard to rank for and expensive to buy. More importantly, prospects never say "GEO" on calls -- they say "AEO." Build two bridge pages to capture the traffic, then send visitors to our AEO content where they convert.', color: "#CCFFE0" },
+    { title: "1. AEO: This is our word. Own it.", description: 'Nobody owns "AEO" yet. We have the most keywords (7,365), people are already searching for it, and prospects say it on sales calls. Our main page ranks on page 2. Push it to page 1 and traffic explodes. Build pages for "aeo tools," "aeo agency," and "aeo software". They\'re easy to win and buyers are already clicking.', color: "#00e676" },
+    { title: "2. LLM Optimization: Easiest wins, biggest gap", description: 'The easiest keywords to rank for in the entire dataset (KD 7.6) and nobody else is there yet. We only have one page on LLM topics. Competitors have zero. Prospects are asking about LLM visibility on sales calls. Build 3-5 pages and we can own this space before it gets crowded.', color: "#008c44" },
+    { title: "3. GEO: Catch the searches, redirect to AEO", description: '"Generative engine optimization" gets 8,300 searches/month but it\'s hard to rank for and expensive to buy. More importantly, prospects never say "GEO" on calls. They say "AEO." Build two bridge pages to capture the traffic, then send visitors to our AEO content where they convert.', color: "#CCFFE0" },
     { title: "4. AI Visibility: Pay to play, don\'t try to rank", description: 'Big companies like Semrush and Ahrefs already dominate organic for these terms. But "AI visibility tools" is our best-converting paid keyword (5 leads, 7% CTR) and prospects use this exact language on calls. Run ads here. Build product landing pages. Don\'t waste time trying to rank organically.', color: "#676c79" },
   ],
 };
 
-const DEFAULT_GONG_SIGNAL = 'Prospects don\'t say "GEO." They say "AEO," "AI visibility," "prompt visibility," and "LLM citations." They frame their need as: content creation + refresh for AEO/SEO, automated triggers when visibility drops, and tracking across ChatGPT/Perplexity/AI Overviews. The Ownwell prospect specifically asked for GSC integration that signals when prompt visibility drops in LLMs -- a feature AirOps doesn\'t yet have but directly validates the LLM visibility cluster as a product and content priority.';
+const DEFAULT_GONG_SIGNAL = 'Prospects don\'t say "GEO." They say "AEO," "AI visibility," "prompt visibility," and "LLM citations." They frame their need as: content creation + refresh for AEO/SEO, automated triggers when visibility drops, and tracking across ChatGPT/Perplexity/AI Overviews. The Ownwell prospect specifically asked for GSC integration that signals when prompt visibility drops in LLMs.a feature AirOps doesn\'t yet have but directly validates the LLM visibility cluster as a product and content priority.';
 
 const STATUS_COLORS = {
   Ranking: "#00e676", Opportunity: "#EEFF8C", Gap: "#ff6b6b", "Hard to rank": "#ff4444",
@@ -277,7 +277,7 @@ export default function App() {
       )}
 
       {/* SEED KEYWORDS INPUT */}
-      <div style={{ marginBottom: 28, border: "1px solid #ffffff15", padding: 20, background: "#ffffff04" }}>
+      <div style={{ marginBottom: 28, border: "1px solid #6B8AFF20", padding: 20, background: "#6B8AFF08" }}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 12, marginBottom: 16 }}>
           <div>
             <div style={{ ...mono, fontSize: 10, color: "#00ff64", marginBottom: 4 }}>SEED KEYWORDS</div>
@@ -323,7 +323,7 @@ export default function App() {
 
       {/* HEADER */}
       <div style={{ marginBottom: 36 }}>
-        <div style={{ ...mono, fontSize: 11, color: "#00ff64", marginBottom: 12 }}>KEYWORD CLUSTER ANALYSIS</div>
+        <div style={{ ...mono, fontSize: 11, color: "#00ff64", marginBottom: 12 }}>THE LANYARD TOOL · KEYWORD CLUSTER ANALYSIS</div>
         <h1 style={{ fontFamily: "Georgia, serif", fontSize: 32, fontWeight: 400, letterSpacing: "-0.02em", lineHeight: 1.1, margin: 0, marginBottom: 8 }}>
           Which opportunity should I pursue
         </h1>
@@ -372,7 +372,7 @@ export default function App() {
 
       {/* ACTIVE CLUSTER DETAIL */}
       {active && (
-        <div style={{ border: "1px solid #008c4430", padding: 24, marginBottom: 24, background: "#008c4406" }}>
+        <div style={{ border: "1px solid #00BCD420", padding: 24, marginBottom: 24, background: "#00BCD408" }}>
           <div style={{ fontFamily: "Georgia, serif", fontSize: 24, fontWeight: 400, letterSpacing: "-0.02em", marginBottom: 14 }}>{active.label}</div>
 
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(105px, 1fr))", gap: 8, marginBottom: 16 }}>
@@ -419,10 +419,10 @@ export default function App() {
       )}
 
       {/* NEXT STEPS: 10 PAGES TO CREATE */}
-      <div style={{ marginTop: 28, border: "1px solid #00ff6430", padding: 24, background: "#00ff6408" }}>
+      <div style={{ marginTop: 28, border: "1px solid #8B5CF620", padding: 24, background: "#8B5CF608" }}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: 12, marginBottom: 20 }}>
           <div>
-            <div style={{ ...mono, fontSize: 10, color: "#00ff64", marginBottom: 8 }}>NEW CONTENT QUEUE</div>
+            <div style={{ ...mono, fontSize: 10, color: "#8B5CF6", marginBottom: 8 }}>NEW CONTENT QUEUE</div>
             <div style={{ fontFamily: "Georgia, serif", fontSize: 22, fontWeight: 400, letterSpacing: "-0.02em", lineHeight: 1.3 }}>Top {pagesToCreate.length} new opportunities</div>
           </div>
           <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
@@ -467,10 +467,10 @@ export default function App() {
       </div>
 
       {/* PAGES TO REFRESH */}
-      <div style={{ marginTop: 16, border: "1px solid #EEFF8C30", padding: 24, background: "#EEFF8C06" }}>
+      <div style={{ marginTop: 16, border: "1px solid #FF8A6520", padding: 24, background: "#FF8A6508" }}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: 12, marginBottom: 20 }}>
           <div>
-            <div style={{ ...mono, fontSize: 10, color: "#EEFF8C", marginBottom: 8 }}>REFRESH QUEUE</div>
+            <div style={{ ...mono, fontSize: 10, color: "#FF8A65", marginBottom: 8 }}>REFRESH QUEUE</div>
             <div style={{ fontFamily: "Georgia, serif", fontSize: 22, fontWeight: 400, letterSpacing: "-0.02em", lineHeight: 1.3 }}>Top {pagesToRefresh.length} existing pages to refresh</div>
           </div>
           <a href="https://app.airops.com/workflows" target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: 6, background: "#EEFF8C", color: "#000d05", ...mono, fontSize: 10, padding: "10px 18px", textDecoration: "none", border: "none", cursor: "pointer" }}>
