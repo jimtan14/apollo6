@@ -327,7 +327,7 @@ export default function App() {
         <h1 style={{ fontFamily: "Georgia, serif", fontSize: 32, fontWeight: 400, letterSpacing: "-0.02em", lineHeight: 1.1, margin: 0, marginBottom: 8 }}>
           Which opportunity should I pursue
         </h1>
-        <p style={{ color: "#a5aab6", fontSize: 13, margin: 0, maxWidth: 700, lineHeight: 1.5 }}>
+        <p style={{ color: "#a5aab6", fontSize: 13, margin: 0, lineHeight: 1.5 }}>
           Four data layers: Semrush organic (20K keywords), Google Ads SEM (968 search terms), Google Search Console (airops.com), and Gong call transcripts. Organic drives strategy. SEM, GSC, and Gong validate.
         </p>
       </div>
