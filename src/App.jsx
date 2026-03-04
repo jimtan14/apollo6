@@ -222,10 +222,21 @@ export default function App() {
     setKeywords(next);
   };
 
+  const addKeyword = () => {
+    if (keywords.length < 5) setKeywords([...keywords, ""]);
+  };
+
+  const removeKeyword = (i) => {
+    if (keywords.length > 3) {
+      const next = keywords.filter((_, idx) => idx !== i);
+      setKeywords(next);
+    }
+  };
+
   const runAnalysis = async () => {
     const filled = keywords.filter((k) => k.trim());
-    if (filled.length !== 5) {
-      setError("Please fill in all 5 seed keywords.");
+    if (filled.length < 3) {
+      setError("Please enter at least 3 seed keywords.");
       return;
     }
     setLoading(true);
@@ -234,7 +245,7 @@ export default function App() {
       const res = await fetch("/api/analyze", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ keywords: keywords.map((k) => k.trim()) }),
+        body: JSON.stringify({ keywords: filled.map((k) => k.trim()) }),
       });
       if (!res.ok) {
         const err = await res.json().catch(() => ({}));
@@ -270,7 +281,7 @@ export default function App() {
       {loading && (
         <div style={{ position: "fixed", inset: 0, background: "#0b0e16ee", zIndex: 999, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 16 }}>
           <div style={{ width: 40, height: 40, border: "3px solid #ffffff15", borderTop: "3px solid #00ff64", borderRadius: "50%", animation: "spin 0.8s linear infinite" }} />
-          <div style={{ ...mono, fontSize: 11, color: "#00ff64" }}>ANALYZING {keywords.length} CLUSTERS...</div>
+          <div style={{ ...mono, fontSize: 11, color: "#00ff64" }}>ANALYZING {keywords.filter(k => k.trim()).length} CLUSTERS...</div>
           <div style={{ fontSize: 12, color: "#676c79", maxWidth: 300, textAlign: "center" }}>Running keyword research, competitive analysis, and strategic recommendations</div>
           <style>{`@keyframes spin { to { transform: rotate(360deg) } }`}</style>
         </div>
@@ -281,7 +292,7 @@ export default function App() {
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 12, marginBottom: 16 }}>
           <div>
             <div style={{ ...mono, fontSize: 10, color: "#00ff64", marginBottom: 4 }}>SEED KEYWORDS</div>
-            <div style={{ fontSize: 13, color: "#a5aab6" }}>Enter 5 keyword clusters to analyze. Change any keyword and run to regenerate the full report.</div>
+            <div style={{ fontSize: 13, color: "#a5aab6" }}>Enter 3 to 5 keyword clusters to analyze. Change any keyword and run to regenerate the full report.</div>
           </div>
           <button
             onClick={runAnalysis}
@@ -295,10 +306,15 @@ export default function App() {
             {!loading && <span style={{ fontSize: 16 }}>&#8599;</span>}
           </button>
         </div>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))", gap: 8 }}>
+        <div style={{ display: "flex", gap: 8, flexWrap: "wrap", alignItems: "flex-end" }}>
           {keywords.map((kw, i) => (
-            <div key={i}>
-              <div style={{ ...monoXs, color: "#676c79", marginBottom: 4 }}>KEYWORD {i + 1}</div>
+            <div key={i} style={{ flex: "1 1 160px", minWidth: 140 }}>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 4 }}>
+                <div style={{ ...monoXs, color: "#676c79" }}>KEYWORD {i + 1}</div>
+                {keywords.length > 3 && (
+                  <button onClick={() => removeKeyword(i)} style={{ background: "none", border: "none", color: "#555", cursor: "pointer", fontSize: 14, padding: "0 2px", lineHeight: 1 }} title="Remove keyword">&times;</button>
+                )}
+              </div>
               <input
                 type="text"
                 value={kw}
@@ -313,6 +329,12 @@ export default function App() {
               />
             </div>
           ))}
+          {keywords.length < 5 && (
+            <button onClick={addKeyword} style={{
+              flex: "0 0 auto", background: "#ffffff08", border: "1px dashed #ffffff25", color: "#676c79",
+              cursor: "pointer", padding: "10px 16px", fontSize: 20, lineHeight: 1, marginBottom: 0, alignSelf: "flex-end", height: 42,
+            }} title="Add keyword">+</button>
+          )}
         </div>
         {error && (
           <div style={{ marginTop: 12, padding: "8px 12px", background: "#ff444420", border: "1px solid #ff444450", color: "#ff6b6b", fontSize: 12 }}>
