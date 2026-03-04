@@ -173,12 +173,12 @@ const DEFAULT_PAGES_TO_REFRESH = [
 ];
 
 const DEFAULT_RECOMMENDATION = {
-  headline: "AEO is the cluster. LLM is the gap. GEO is the redirect. All four data layers confirm.",
+  headline: "Own AEO. Grab LLM before anyone else does. Catch GEO traffic and send it to AEO. Use AI Visibility for paid ads only.",
   items: [
-    { title: "1. AEO: Defend and expand", description: '7,365 organic keywords, 12 SEM leads, 2,800+ GSC citations, prospects using "AEO" in Gong calls. The pillar page ranks at position 21.8 -- move it to page 1 and organic clicks multiply. Prioritize commercial terms: "aeo tools," "aeo services," "aeo agency" (all KD 1-10). Build "aeo software" and "aeo strategy" pages based on SEM lead signals.', color: "#00e676" },
-    { title: "2. LLM Optimization: Fastest ROI", description: 'Avg KD 7.6, $3.90 CpL in SEM, one GSC page already driving 35 clicks with 316% citation growth. Prospects ask about "prompt visibility in LLMs" on calls. Build 3-5 pillar pieces: "llm seo," "llm visibility tools," "llm ranking." AirOps has only one LLM page -- the upside is enormous.', color: "#008c44" },
-    { title: "3. GEO: Organic redirect only", description: '$367 CpL, 2.9% CTR, no dedicated GSC page, prospects don\'t use the term "GEO" on calls. Build a "GEO vs AEO" bridge page (captures 8,300/mo head term) and a "generative engine optimization tools" page (KD 14). Route traffic to AEO. Reduce paid.', color: "#CCFFE0" },
-    { title: "4. AI Visibility: Paid + product pages", description: '17 SEM leads, 7.0% CTR, prospects say "AI visibility" on Gong calls. Organic is hard (KD 25+, Profound owns). Build dedicated product landing pages for "ai visibility tools," "ai visibility tracker." Let AEO pillar content link down. Invest paid budget here.', color: "#676c79" },
+    { title: "1. AEO: This is our word. Own it.", description: 'Nobody owns "AEO" yet. We have the most keywords (7,365), people are already searching for it, and prospects say it on sales calls. Our main page ranks on page 2 -- push it to page 1 and traffic explodes. Build pages for "aeo tools," "aeo agency," and "aeo software" -- they\'re easy to win and buyers are already clicking.', color: "#00e676" },
+    { title: "2. LLM Optimization: Easiest wins, biggest gap", description: 'The easiest keywords to rank for in the entire dataset (KD 7.6) and nobody else is there yet. We only have one page on LLM topics -- competitors have zero. Prospects are asking about LLM visibility on sales calls. Build 3-5 pages and we can own this space before it gets crowded.', color: "#008c44" },
+    { title: "3. GEO: Catch the searches, redirect to AEO", description: '"Generative engine optimization" gets 8,300 searches/month but it\'s hard to rank for and expensive to buy. More importantly, prospects never say "GEO" on calls -- they say "AEO." Build two bridge pages to capture the traffic, then send visitors to our AEO content where they convert.', color: "#CCFFE0" },
+    { title: "4. AI Visibility: Pay to play, don\'t try to rank", description: 'Big companies like Semrush and Ahrefs already dominate organic for these terms. But "AI visibility tools" is our best-converting paid keyword (5 leads, 7% CTR) and prospects use this exact language on calls. Run ads here. Build product landing pages. Don\'t waste time trying to rank organically.', color: "#676c79" },
   ],
 };
 
@@ -298,7 +298,7 @@ export default function App() {
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))", gap: 8 }}>
           {keywords.map((kw, i) => (
             <div key={i}>
-              <div style={{ ...monoXs, color: "#676c79", marginBottom: 4 }}>CLUSTER {i + 1}</div>
+              <div style={{ ...monoXs, color: "#676c79", marginBottom: 4 }}>KEYWORD {i + 1}</div>
               <input
                 type="text"
                 value={kw}
@@ -333,7 +333,7 @@ export default function App() {
       </div>
 
       {/* RECOMMENDATION */}
-      <div style={{ border: "1px solid #00ff6425", padding: 24, background: "#00ff6406", marginBottom: 20 }}>
+      <div style={{ border: "1px solid #00ff6440", padding: 24, background: "#00ff6415", marginBottom: 20 }}>
         <div style={{ ...mono, fontSize: 10, color: "#00ff64", marginBottom: 12 }}>RECOMMENDATION</div>
         <div style={{ fontFamily: "Georgia, serif", fontSize: 20, fontWeight: 400, letterSpacing: "-0.02em", marginBottom: 20, lineHeight: 1.3 }}>
           {recommendation.headline}
@@ -349,7 +349,7 @@ export default function App() {
       </div>
 
       {/* GONG SIGNAL */}
-      <div style={{ marginBottom: 28, padding: 14, background: "#ffffff06", borderLeft: "2px solid #EEFF8C" }}>
+      <div style={{ marginBottom: 28, padding: 14, background: "#EEFF8C08", border: "1px solid #EEFF8C20", borderLeft: "3px solid #EEFF8C" }}>
         <div style={{ ...monoSm, color: "#EEFF8C", marginBottom: 6 }}>GONG SIGNAL WORTH NOTING</div>
         <p style={{ fontSize: 12, lineHeight: 1.6, margin: 0, color: "#ddd" }}>{gongSignal}</p>
       </div>
@@ -372,7 +372,7 @@ export default function App() {
 
       {/* ACTIVE CLUSTER DETAIL */}
       {active && (
-        <div style={{ border: "1px solid #ffffff12", padding: 24, marginBottom: 24 }}>
+        <div style={{ border: "1px solid #008c4430", padding: 24, marginBottom: 24, background: "#008c4406" }}>
           <div style={{ fontFamily: "Georgia, serif", fontSize: 24, fontWeight: 400, letterSpacing: "-0.02em", marginBottom: 14 }}>{active.label}</div>
 
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(105px, 1fr))", gap: 8, marginBottom: 16 }}>
@@ -422,8 +422,8 @@ export default function App() {
       <div style={{ marginTop: 28, border: "1px solid #00ff6430", padding: 24, background: "#00ff6408" }}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: 12, marginBottom: 20 }}>
           <div>
-            <div style={{ ...mono, fontSize: 10, color: "#00ff64", marginBottom: 8 }}>NEXT 2 WEEKS</div>
-            <div style={{ fontFamily: "Georgia, serif", fontSize: 22, fontWeight: 400, letterSpacing: "-0.02em", lineHeight: 1.3 }}>{pagesToCreate.length} pages to create</div>
+            <div style={{ ...mono, fontSize: 10, color: "#00ff64", marginBottom: 8 }}>NEW CONTENT QUEUE</div>
+            <div style={{ fontFamily: "Georgia, serif", fontSize: 22, fontWeight: 400, letterSpacing: "-0.02em", lineHeight: 1.3 }}>Top {pagesToCreate.length} new opportunities</div>
           </div>
           <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
             <a href="https://app.airops.com/workflows" target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: 6, background: "#00ff64", color: "#000d05", ...mono, fontSize: 10, padding: "10px 18px", textDecoration: "none", border: "none", cursor: "pointer" }}>
@@ -471,7 +471,7 @@ export default function App() {
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: 12, marginBottom: 20 }}>
           <div>
             <div style={{ ...mono, fontSize: 10, color: "#EEFF8C", marginBottom: 8 }}>REFRESH QUEUE</div>
-            <div style={{ fontFamily: "Georgia, serif", fontSize: 22, fontWeight: 400, letterSpacing: "-0.02em", lineHeight: 1.3 }}>{pagesToRefresh.length} existing pages to optimize</div>
+            <div style={{ fontFamily: "Georgia, serif", fontSize: 22, fontWeight: 400, letterSpacing: "-0.02em", lineHeight: 1.3 }}>Top {pagesToRefresh.length} existing pages to refresh</div>
           </div>
           <a href="https://app.airops.com/workflows" target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: 6, background: "#EEFF8C", color: "#000d05", ...mono, fontSize: 10, padding: "10px 18px", textDecoration: "none", border: "none", cursor: "pointer" }}>
             Run Refresh Workflow <span style={{ fontSize: 14 }}>&#8599;</span>
