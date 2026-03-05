@@ -1,22 +1,19 @@
-import Anthropic from "@anthropic-ai/sdk";
+export const config = { runtime: "edge" };
 
-export const config = { maxDuration: 60 };
-
-export default async function handler(req, res) {
+export default async function handler(req) {
   if (req.method !== "POST") {
-    return res.status(405).json({ error: "Method not allowed" });
+    return new Response(JSON.stringify({ error: "Method not allowed" }), { status: 405, headers: { "Content-Type": "application/json" } });
   }
 
-  const { keywords } = req.body;
+  const { keywords } = await req.json();
   if (!keywords || !Array.isArray(keywords) || keywords.length < 3 || keywords.length > 5) {
-    return res.status(400).json({ error: "Between 3 and 5 seed keywords required" });
+    return new Response(JSON.stringify({ error: "Between 3 and 5 seed keywords required" }), { status: 400, headers: { "Content-Type": "application/json" } });
   }
 
-  if (!process.env.ANTHROPIC_API_KEY) {
-    return res.status(500).json({ error: "ANTHROPIC_API_KEY not configured. Add it in Vercel project settings." });
+  const apiKey = process.env.ANTHROPIC_API_KEY;
+  if (!apiKey) {
+    return new Response(JSON.stringify({ error: "ANTHROPIC_API_KEY not configured. Add it in Vercel project settings." }), { status: 500, headers: { "Content-Type": "application/json" } });
   }
-
-  const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
 
   const count = keywords.length;
   const COLORS = ["#00e676", "#008c44", "#CCFFE0", "#005c2e", "#0a2e14"];
@@ -130,13 +127,27 @@ ${clusterRules}
 - Return ONLY the JSON object. No explanation, no markdown.`;
 
   try {
-    const response = await client.messages.create({
-      model: "claude-sonnet-4-6",
-      max_tokens: 8000,
-      messages: [{ role: "user", content: prompt }],
+    const response = await fetch("https://api.anthropic.com/v1/messages", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "x-api-key": apiKey,
+        "anthropic-version": "2023-06-01",
+      },
+      body: JSON.stringify({
+        model: "claude-sonnet-4-6",
+        max_tokens: 8000,
+        messages: [{ role: "user", content: prompt }],
+      }),
     });
 
-    const text = response.content[0].text;
+    if (!response.ok) {
+      const err = await response.text();
+      return new Response(JSON.stringify({ error: `Anthropic API error: ${response.status} ${err}` }), { status: 502, headers: { "Content-Type": "application/json" } });
+    }
+
+    const result = await response.json();
+    const text = result.content[0].text;
 
     let data;
     try {
@@ -146,13 +157,12 @@ ${clusterRules}
       if (jsonMatch) {
         data = JSON.parse(jsonMatch[0]);
       } else {
-        throw new Error("Could not parse response as JSON");
+        return new Response(JSON.stringify({ error: "Could not parse AI response" }), { status: 500, headers: { "Content-Type": "application/json" } });
       }
     }
 
-    return res.status(200).json(data);
+    return new Response(JSON.stringify(data), { status: 200, headers: { "Content-Type": "application/json" } });
   } catch (error) {
-    console.error("Analysis error:", error);
-    return res.status(500).json({ error: error.message || "Analysis failed" });
+    return new Response(JSON.stringify({ error: error.message || "Analysis failed" }), { status: 500, headers: { "Content-Type": "application/json" } });
   }
 }
