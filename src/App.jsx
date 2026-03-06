@@ -251,7 +251,50 @@ export default function App() {
         const err = await res.json().catch(() => ({}));
         throw new Error(err.error || `Analysis failed (${res.status})`);
       }
-      const data = await res.json();
+
+      // Read SSE stream and accumulate text
+      const reader = res.body.getReader();
+      const decoder = new TextDecoder();
+      let fullText = "";
+      let buffer = "";
+
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        buffer += decoder.decode(value, { stream: true });
+        const lines = buffer.split("\n");
+        buffer = lines.pop() || "";
+
+        for (const line of lines) {
+          if (line.startsWith("data: ")) {
+            const raw = line.slice(6).trim();
+            if (raw === "[DONE]") continue;
+            if (!raw) continue;
+            try {
+              const chunk = JSON.parse(raw);
+              if (chunk.error) throw new Error(chunk.error);
+              if (chunk.text) fullText += chunk.text;
+            } catch (e) {
+              if (e.message && !e.message.includes("JSON")) throw e;
+            }
+          }
+        }
+      }
+
+      if (!fullText.trim()) throw new Error("No response received from AI");
+
+      let data;
+      try {
+        data = JSON.parse(fullText);
+      } catch {
+        const jsonMatch = fullText.match(/\{[\s\S]*\}/);
+        if (jsonMatch) {
+          data = JSON.parse(jsonMatch[0]);
+        } else {
+          throw new Error("Could not parse AI response");
+        }
+      }
+
       if (data.clusters?.length) {
         setClusters(data.clusters);
         setActiveCluster(data.clusters[0].id);

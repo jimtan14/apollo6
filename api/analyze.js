@@ -137,6 +137,7 @@ ${clusterRules}
       body: JSON.stringify({
         model: "claude-sonnet-4-6",
         max_tokens: 8000,
+        stream: true,
         messages: [{ role: "user", content: prompt }],
       }),
     });
@@ -146,22 +147,60 @@ ${clusterRules}
       return new Response(JSON.stringify({ error: `Anthropic API error: ${response.status} ${err}` }), { status: 502, headers: { "Content-Type": "application/json" } });
     }
 
-    const result = await response.json();
-    const text = result.content[0].text;
+    // Stream the SSE response back to the client as plain text chunks
+    const encoder = new TextEncoder();
+    const decoder = new TextDecoder();
+    const reader = response.body.getReader();
 
-    let data;
-    try {
-      data = JSON.parse(text);
-    } catch {
-      const jsonMatch = text.match(/\{[\s\S]*\}/);
-      if (jsonMatch) {
-        data = JSON.parse(jsonMatch[0]);
-      } else {
-        return new Response(JSON.stringify({ error: "Could not parse AI response" }), { status: 500, headers: { "Content-Type": "application/json" } });
-      }
-    }
+    const stream = new ReadableStream({
+      async start(controller) {
+        let buffer = "";
+        try {
+          while (true) {
+            const { done, value } = await reader.read();
+            if (done) {
+              controller.enqueue(encoder.encode("data: [DONE]\n\n"));
+              controller.close();
+              break;
+            }
+            buffer += decoder.decode(value, { stream: true });
+            const lines = buffer.split("\n");
+            buffer = lines.pop() || "";
 
-    return new Response(JSON.stringify(data), { status: 200, headers: { "Content-Type": "application/json" } });
+            for (const line of lines) {
+              if (line.startsWith("data: ")) {
+                const data = line.slice(6).trim();
+                if (data === "[DONE]") continue;
+                if (!data) continue;
+                try {
+                  const parsed = JSON.parse(data);
+                  if (parsed.type === "content_block_delta" && parsed.delta?.text) {
+                    controller.enqueue(encoder.encode("data: " + JSON.stringify({ text: parsed.delta.text }) + "\n\n"));
+                  }
+                  if (parsed.type === "error") {
+                    controller.enqueue(encoder.encode("data: " + JSON.stringify({ error: parsed.error?.message || "Stream error" }) + "\n\n"));
+                  }
+                } catch {
+                  // skip unparseable lines
+                }
+              }
+            }
+          }
+        } catch (err) {
+          controller.enqueue(encoder.encode("data: " + JSON.stringify({ error: err.message || "Stream failed" }) + "\n\n"));
+          controller.close();
+        }
+      },
+    });
+
+    return new Response(stream, {
+      status: 200,
+      headers: {
+        "Content-Type": "text/event-stream",
+        "Cache-Control": "no-cache",
+        "Connection": "keep-alive",
+      },
+    });
   } catch (error) {
     return new Response(JSON.stringify({ error: error.message || "Analysis failed" }), { status: 500, headers: { "Content-Type": "application/json" } });
   }
